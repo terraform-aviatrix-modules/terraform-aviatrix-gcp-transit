@@ -2,7 +2,7 @@
 
 This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
 
-<img src="https://gitlab.com/tmavx-tf-engineering/terraform-aviatrix-gcp-transit/-/tree/master/images/transit-vpc-gcp.png"  height="250">
+<img src="https://avtx-tf-modules-images.s3.amazonaws.com/transit-vpc-gcp.png"  height="250">
 
 The following variables are required:
 
