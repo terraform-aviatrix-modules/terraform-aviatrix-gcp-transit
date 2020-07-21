@@ -39,7 +39,7 @@ resource "aviatrix_vpc" "ha" {
 resource "aviatrix_transit_gateway" "single" {
   count = var.ha_gw ? 0 : 1
   gw_name            = "avx-${var.gcp_primary_region}-transit-gw"
-  vpc_id             = aviatrix_vpc.single.name
+  vpc_id             = aviatrix_vpc.single[0].name
   cloud_type         = 4
   vpc_reg            = "${var.gcp_primary_region}-b"
   enable_active_mesh = true
@@ -51,7 +51,7 @@ resource "aviatrix_transit_gateway" "single" {
 resource "aviatrix_transit_gateway" "ha" {
   count = var.ha_gw ? 1 : 0
   gw_name            = "avx-${var.gcp_primary_region}-transit-gw"
-  vpc_id             = aviatrix_vpc.ha.name
+  vpc_id             = aviatrix_vpc.ha[0].name
   cloud_type         = 4
   vpc_reg            = "${var.gcp_primary_region}-b"
   enable_active_mesh = true

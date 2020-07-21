@@ -1,6 +1,5 @@
 variable "gcp_primary_region" {
   description = "Primary GCP region where subnet and Aviatrix Transit Gateway will be created"
-  default = ""
 }
 
 variable "gcp_ha_region" {
@@ -10,7 +9,6 @@ variable "gcp_ha_region" {
 
 variable "gcp_account_name" {
   description = "Name of the GCP Access Account defined in the Aviatrix Controller"
-  default = ""
 }
 
 variable "gcp_gw_size" {
