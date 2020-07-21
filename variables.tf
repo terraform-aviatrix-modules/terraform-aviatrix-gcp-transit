@@ -26,6 +26,7 @@ variable "gcp_sub2_cidr" {
 }
 
 variable "ha_gw" {
+  description = "Set to false te deploy a single transit GW"
   type    = bool
   default = true
 }
