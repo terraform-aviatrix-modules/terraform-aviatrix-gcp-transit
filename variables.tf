@@ -1,21 +1,5 @@
-variable "username" {
-  type    = string
-  default = ""
-}
-
-variable "password" {
-  type    = string
-  default = ""
-}
-
-variable "controller_ip" {
-  type    = string
-  default = ""
-}
-
 variable "gcp_primary_region" {
   description = "Primary GCP region where subnet and Aviatrix Transit Gateway will be created"
-  default = ""
 }
 
 variable "gcp_ha_region" {
@@ -25,7 +9,6 @@ variable "gcp_ha_region" {
 
 variable "gcp_account_name" {
   description = "Name of the GCP Access Account defined in the Aviatrix Controller"
-  default = ""
 }
 
 variable "gcp_gw_size" {
@@ -35,10 +18,15 @@ variable "gcp_gw_size" {
 
 variable "gcp_sub1_cidr" {
   description = "CIDR of the primary GCP subnet"
-  default = ""
 }
 
 variable "gcp_sub2_cidr" {
   description = "CIDR of the HA GCP subnet"
   default = ""
+}
+
+variable "ha_gw" {
+  description = "Set to false te deploy a single transit GW"
+  type    = bool
+  default = true
 }
