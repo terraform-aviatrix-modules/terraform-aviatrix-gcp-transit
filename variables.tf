@@ -4,7 +4,7 @@ variable "gcp_primary_region" {
 
 variable "gcp_ha_region" {
   description = "Secondary GCP region where subnet and HA Aviatrix Transit Gateway will be created"
-  default = ""
+  default     = ""
 }
 
 variable "gcp_account_name" {
@@ -13,7 +13,7 @@ variable "gcp_account_name" {
 
 variable "gcp_gw_size" {
   description = "Size of the compute instance for the Aviatrix Gateways"
-  default = "n1-standard-1"
+  default     = "n1-standard-1"
 }
 
 variable "gcp_sub1_cidr" {
@@ -22,11 +22,11 @@ variable "gcp_sub1_cidr" {
 
 variable "gcp_sub2_cidr" {
   description = "CIDR of the HA GCP subnet"
-  default = ""
+  default     = ""
 }
 
 variable "ha_gw" {
   description = "Set to false te deploy a single transit GW"
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
 }

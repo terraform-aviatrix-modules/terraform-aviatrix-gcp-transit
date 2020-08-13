@@ -3,7 +3,7 @@
 # GCP zones b,c are almost universally available that's why we chose them
 
 resource "aviatrix_vpc" "single" {
-  count = var.ha_gw ? 0 : 1
+  count                = var.ha_gw ? 0 : 1
   cloud_type           = 4
   account_name         = var.gcp_account_name
   name                 = "transit-vpc-${var.gcp_primary_region}"
@@ -17,7 +17,7 @@ resource "aviatrix_vpc" "single" {
 }
 
 resource "aviatrix_vpc" "ha" {
-  count = var.ha_gw ? 1 : 0
+  count                = var.ha_gw ? 1 : 0
   cloud_type           = 4
   account_name         = var.gcp_account_name
   name                 = "transit-vpc-${var.gcp_primary_region}"
@@ -37,7 +37,7 @@ resource "aviatrix_vpc" "ha" {
 }
 
 resource "aviatrix_transit_gateway" "single" {
-  count = var.ha_gw ? 0 : 1
+  count              = var.ha_gw ? 0 : 1
   gw_name            = "avx-${var.gcp_primary_region}-transit-gw"
   vpc_id             = aviatrix_vpc.single[0].name
   cloud_type         = 4
@@ -49,7 +49,7 @@ resource "aviatrix_transit_gateway" "single" {
 }
 
 resource "aviatrix_transit_gateway" "ha" {
-  count = var.ha_gw ? 1 : 0
+  count              = var.ha_gw ? 1 : 0
   gw_name            = "avx-${var.gcp_primary_region}-transit-gw"
   vpc_id             = aviatrix_vpc.ha[0].name
   cloud_type         = 4
