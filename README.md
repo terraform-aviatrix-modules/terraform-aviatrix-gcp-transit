@@ -28,16 +28,17 @@ The following variables are required:
 
 key | value
 --- | ---
-gcp_sub1_cidr | The IP CIDR to be used to create the first subnet
-gcp_sub2_cidr | The IP CIDR to be used to create the ha subnet (optional when ha_gw is disabled)
-gcp_primary_region | GCP region to deploy the transit VPC, first subnet and gateway in
-gcp_ha_region | GCP region to deploy the ha subnet and ha gateway in (optional when ha_gw is disabled)
-gcp_account_name | The GCP account name on the Aviatrix controller, under which the controller will deploy this VPC
+sub1_cidr | The IP CIDR to be used to create the first subnet
+sub2_cidr | The IP CIDR to be used to create the ha subnet (optional when ha_gw is disabled)
+primary_region | GCP region to deploy the transit VPC, first subnet and gateway in
+ha_region | GCP region to deploy the ha subnet and ha gateway in (optional when ha_gw is disabled)
+account | The GCP account name on the Aviatrix controller, under which the controller will deploy this VPC
 
 The following variables are optional:
 
 key | default | value
 --- | --- | ---
+name | avx-\<primary/ha-region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-\<name\>-transit.
 instance_size | n1-standard-1 | Size of the transit gateway instances
 ha_gw | true | Set to false te deploy a single transit GW
 
@@ -47,5 +48,5 @@ This module will return the following objects:
 
 key | description
 --- | ---
-transit_vpc | The created vpc as an object with all of it's attributes. This was created using the aviatrix_vpc resource.
+vpc | The created vpc as an object with all of it's attributes. This was created using the aviatrix_vpc resource.
 transit_gateway | The created Aviatrix transit gateway as an object with all of it's attributes.

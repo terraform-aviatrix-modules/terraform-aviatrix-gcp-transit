@@ -1,4 +1,4 @@
-output "transit_vpc" {
+output "vpc" {
   description = "Returns aviatrix_vpc object and all of its attributes"
   value       = var.ha_gw ? aviatrix_vpc.ha[0] : aviatrix_vpc.single[0]
 }
