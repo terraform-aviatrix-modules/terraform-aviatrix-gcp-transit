@@ -15,11 +15,11 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 module "gcp_transit_1" {
   source             = "app.terraform.io/aviatrix-tf-solutions/gcp-transit/aviatrix"
   version            = "1.0.0"
-  gcp_sub1_cidr      = "10.10.0.0/16"
-  gcp_sub2_cidr      = "10.20.0.0/16"
-  gcp_primary_region = "us-east1"
-  gcp_ha_region      = "us-east4"
-  gcp_account_name   = "TM-GCP"
+  sub1_cidr          = "10.10.0.0/16"
+  sub2_cidr          = "10.20.0.0/16"
+  primary_region     = "us-east1"
+  ha_region          = "us-east4"
+  account            = "TM-GCP"
 }
 ```
 
