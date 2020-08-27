@@ -46,7 +46,7 @@ resource "aviatrix_transit_gateway" "single" {
   gw_size            = var.instance_size
   account_name       = var.account
   subnet             = var.sub1_cidr
-  connected_transit  = var.connected_transit  
+  connected_transit  = var.connected_transit
 }
 
 resource "aviatrix_transit_gateway" "ha" {
@@ -62,7 +62,7 @@ resource "aviatrix_transit_gateway" "ha" {
   ha_subnet          = var.sub2_cidr
   ha_gw_size         = var.instance_size
   ha_zone            = "${var.ha_region}-${var.az2}"
-  connected_transit  = var.connected_transit  
+  connected_transit  = var.connected_transit
 }
 
 
