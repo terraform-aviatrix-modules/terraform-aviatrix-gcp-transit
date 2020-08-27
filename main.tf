@@ -42,10 +42,11 @@ resource "aviatrix_transit_gateway" "single" {
   vpc_id             = aviatrix_vpc.single[0].name
   cloud_type         = 4
   vpc_reg            = "${var.primary_region}-${var.az1}"
-  enable_active_mesh = true
+  enable_active_mesh = var.active_mesh
   gw_size            = var.instance_size
   account_name       = var.account
   subnet             = var.sub1_cidr
+  connected_transit  = var.connected_transit  
 }
 
 resource "aviatrix_transit_gateway" "ha" {
@@ -54,13 +55,14 @@ resource "aviatrix_transit_gateway" "ha" {
   vpc_id             = aviatrix_vpc.ha[0].name
   cloud_type         = 4
   vpc_reg            = "${var.primary_region}-${var.az1}"
-  enable_active_mesh = true
+  enable_active_mesh = var.active_mesh
   gw_size            = var.instance_size
   account_name       = var.account
   subnet             = var.sub1_cidr
   ha_subnet          = var.sub2_cidr
   ha_gw_size         = var.instance_size
   ha_zone            = "${var.ha_region}-${var.az2}"
+  connected_transit  = var.connected_transit  
 }
 
 

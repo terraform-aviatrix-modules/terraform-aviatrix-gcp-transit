@@ -45,3 +45,15 @@ variable "name" {
   type    = string
   default = ""
 }
+
+variable "connected_transit" {
+  description = ""
+  type        = bool
+  default     = true
+}
+
+variable "active_mesh" {
+  description = ""
+  type        = bool
+  default     = true
+}
