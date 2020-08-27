@@ -14,12 +14,13 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "app.terraform.io/aviatrix-tf-solutions/gcp-transit/aviatrix"
-  version            = "1.0.0"
+  version            = "1.0.1"
+
   sub1_cidr          = "10.10.0.0/16"
   sub2_cidr          = "10.20.0.0/16"
   primary_region     = "us-east1"
   ha_region          = "us-east4"
-  account            = "TM-GCP"
+  account            = "GCP"
 }
 ```
 
@@ -41,6 +42,8 @@ key | default | value
 name | avx-\<primary/ha-region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-\<name\>-transit.
 instance_size | n1-standard-1 | Size of the transit gateway instances
 ha_gw | true | Set to false te deploy a single transit GW
+connected_transit | true | Set to false to disable connected_transit
+active_mesh | true | Set to false to disable active_mesh
 
 ### Outputs
 
