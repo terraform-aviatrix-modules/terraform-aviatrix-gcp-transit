@@ -14,7 +14,7 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "app.terraform.io/aviatrix-tf-solutions/gcp-transit/aviatrix"
-  version            = "1.0.1"
+  version            = "1.0.2"
 
   sub1_cidr          = "10.10.0.0/16"
   sub2_cidr          = "10.20.0.0/16"
