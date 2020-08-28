@@ -20,7 +20,7 @@ resource "aviatrix_vpc" "ha" {
   count                = var.ha_gw ? 1 : 0
   cloud_type           = 4
   account_name         = var.account
-  name                 = "transit-vpc-${var.primary_region}"
+  name                 = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.primary_region}-transit"
   aviatrix_transit_vpc = false
   aviatrix_firenet_vpc = false
   subnets {
