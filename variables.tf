@@ -1,4 +1,4 @@
-variable "primary_region" {
+variable "region" {
   description = "Primary GCP region where subnet and Aviatrix Transit Gateway will be created"
   type        = string
 }
@@ -20,12 +20,12 @@ variable "instance_size" {
   type        = string
 }
 
-variable "sub1_cidr" {
+variable "cidr" {
   description = "CIDR of the primary GCP subnet"
   type        = string
 }
 
-variable "sub2_cidr" {
+variable "ha_cidr" {
   description = "CIDR of the HA GCP subnet"
   type        = string
   default     = ""
@@ -38,13 +38,13 @@ variable "ha_gw" {
 }
 
 variable "az1" {
-  description = "Concatenates with primary_region to form az names. e.g. us-east1b."
+  description = "Concatenates with region to form az names. e.g. us-east1b."
   type        = string
   default     = "b"
 }
 
 variable "az2" {
-  description = "Concatenates with ha_region to form az names. e.g. us-east1c."
+  description = "Concatenates with region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c."
   type        = string
   default     = "c"
 }
