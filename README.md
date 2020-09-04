@@ -60,6 +60,7 @@ module "gcp_ha_transit_1" {
   ha_region          = "us-east4"
   ha_cidr            = "10.20.0.0/16"
 }
+```
 
 ### Variables
 The following variables are required:
