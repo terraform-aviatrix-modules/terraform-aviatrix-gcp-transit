@@ -52,8 +52,8 @@ instance_size | n1-standard-1 | Size of the transit gateway instances
 ha_gw | true | Set to false te deploy a single transit GW
 connected_transit | true | Set to false to disable connected_transit
 active_mesh | true | Set to false to disable active_mesh
-az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b. Used for insane mode only.
-az2 | "b" | Concatenates with ha_region to form az names. e.g. us-east4b. Used for insane mode only.
+az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
+az2 | "b" | Concatenates with ha_region to form az names. e.g. us-east4b.
 
 ### Outputs
 
