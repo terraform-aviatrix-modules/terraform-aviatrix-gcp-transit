@@ -44,9 +44,9 @@ variable "az1" {
 }
 
 variable "az2" {
-  description = "Concatenates with ha_region to form az names. e.g. us-east4b."
+  description = "Concatenates with ha_region to form az names. e.g. us-east1c."
   type        = string
-  default     = "b"
+  default     = "c"
 }
 
 variable "name" {

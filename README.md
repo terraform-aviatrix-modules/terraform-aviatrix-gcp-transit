@@ -27,7 +27,6 @@ module "gcp_transit_1" {
   sub1_cidr          = "10.10.0.0/16"
   sub2_cidr          = "10.20.0.0/16"
   primary_region     = "us-east1"
-  ha_region          = "us-east4"
   account            = "GCP"
 }
 ```
@@ -40,7 +39,6 @@ key | value
 sub1_cidr | The IP CIDR to be used to create the first subnet
 sub2_cidr | The IP CIDR to be used to create the ha subnet (optional when ha_gw is disabled)
 primary_region | GCP region to deploy the transit VPC, first subnet and gateway in
-ha_region | GCP region to deploy the ha subnet and ha gateway in (optional when ha_gw is disabled)
 account | The GCP account name on the Aviatrix controller, under which the controller will deploy this VPC
 
 The following variables are optional:
@@ -52,8 +50,9 @@ instance_size | n1-standard-1 | Size of the transit gateway instances
 ha_gw | true | Set to false te deploy a single transit GW
 connected_transit | true | Set to false to disable connected_transit
 active_mesh | true | Set to false to disable active_mesh
+ha_region | "" | GCP region to deploy the ha subnet and ha gateway in. By default it will deploy in the primary region but a different AZ.
 az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
-az2 | "b" | Concatenates with ha_region to form az names. e.g. us-east4b.
+az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
 
 ### Outputs
 

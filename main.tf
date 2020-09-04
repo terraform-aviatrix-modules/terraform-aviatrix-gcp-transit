@@ -32,7 +32,7 @@ resource "aviatrix_vpc" "ha" {
   subnets {
     name   = length(var.name) > 0 ? "avx-${var.name}-transit-ha" : "avx-${var.ha_region}-transit"
     cidr   = var.sub2_cidr
-    region = var.ha_region
+    region = length(var.ha_region) > 0 ? var.ha_region : var.primary_region
   }
 }
 
