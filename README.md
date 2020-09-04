@@ -14,7 +14,7 @@ v1.0.0 | 0.12 | |
 
 ### Diagram
 
-<img src="https://avtx-tf-modules-images.s3.amazonaws.com/transit-vpc-gcp.png"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-gcp-transit/blob/master/img/transit-vpc-gcp-ha.png?raw=true">
 
 ### Usage Example
 
