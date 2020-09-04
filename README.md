@@ -4,6 +4,14 @@
 
 This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
 
+### Compatibility
+Module version | Terraform version | Controller version | Terraform provider version
+:--- | :--- | :--- | :---
+v1.1.0 | 0.12 | | 
+v1.0.2 | 0.12 | | 
+v1.0.1 | 0.12 | |
+v1.0.0 | 0.12 | |
+
 ### Diagram
 
 <img src="https://avtx-tf-modules-images.s3.amazonaws.com/transit-vpc-gcp.png"  height="250">
@@ -14,7 +22,7 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "app.terraform.io/aviatrix-tf-solutions/gcp-transit/aviatrix"
-  version            = "1.0.2"
+  version            = "1.1.0"
 
   sub1_cidr          = "10.10.0.0/16"
   sub2_cidr          = "10.20.0.0/16"
@@ -44,6 +52,8 @@ instance_size | n1-standard-1 | Size of the transit gateway instances
 ha_gw | true | Set to false te deploy a single transit GW
 connected_transit | true | Set to false to disable connected_transit
 active_mesh | true | Set to false to disable active_mesh
+az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b. Used for insane mode only.
+az2 | "b" | Concatenates with ha_region to form az names. e.g. us-east4b. Used for insane mode only.
 
 ### Outputs
 
