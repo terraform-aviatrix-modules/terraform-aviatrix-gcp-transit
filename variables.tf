@@ -38,13 +38,13 @@ variable "ha_gw" {
 }
 
 variable "az1" {
-  description = "Concatenates with primary_region to form az names. e.g. us-east1b. Used for insane mode only."
+  description = "Concatenates with primary_region to form az names. e.g. us-east1b."
   type        = string
   default     = "b"
 }
 
 variable "az2" {
-  description = "Concatenates with ha_region to form az names. e.g. us-east4b. Used for insane mode only."
+  description = "Concatenates with ha_region to form az names. e.g. us-east4b."
   type        = string
   default     = "b"
 }
