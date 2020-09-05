@@ -52,7 +52,7 @@ resource "aviatrix_transit_gateway" "single" {
 resource "aviatrix_transit_gateway" "ha" {
   count              = var.ha_gw ? 1 : 0
   gw_name            = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
-  vpc_id             = aviatrix_vpc.ha_region[0].name
+  vpc_id             = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].name : aviatrix_vpc.single_region[0].name
   cloud_type         = 4
   vpc_reg            = "${var.region}-${var.az1}"
   enable_active_mesh = var.active_mesh
