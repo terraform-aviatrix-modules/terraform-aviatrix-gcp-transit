@@ -18,16 +18,47 @@ v1.0.0 | 0.12 | |
 
 ### Usage Example
 
+#### Single
 ```
 # GCP Transit Module
 module "gcp_transit_1" {
-  source             = "app.terraform.io/aviatrix-tf-solutions/gcp-transit/aviatrix"
+  source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
+  version            = "1.1.0"
+  
+  account            = "GCP"
+  cidr               = "10.10.0.0/16"
+  region             = "us-east1"
+  ha_gw              = false
+}
+```
+
+#### HA
+```
+# GCP Transit Module
+module "gcp_ha_transit_1" {
+  source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
   version            = "1.1.0"
 
-  sub1_cidr          = "10.10.0.0/16"
-  sub2_cidr          = "10.20.0.0/16"
-  primary_region     = "us-east1"
   account            = "GCP"
+  cidr               = "10.10.0.0/16"
+  region             = "us-east1"
+}
+
+```
+
+#### Multi-region HA
+```
+# GCP Transit Module
+module "gcp_ha_transit_1" {
+  source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
+  version            = "1.1.0"
+
+  account            = "GCP"
+  cidr               = "10.10.0.0/16"
+  region             = "us-east1"
+  
+  ha_region          = "us-east4"
+  ha_cidr            = "10.20.0.0/16"
 }
 ```
 
@@ -36,9 +67,8 @@ The following variables are required:
 
 key | value
 --- | ---
-sub1_cidr | The IP CIDR to be used to create the first subnet
-sub2_cidr | The IP CIDR to be used to create the ha subnet (optional when ha_gw is disabled)
-primary_region | GCP region to deploy the transit VPC, first subnet and gateway in
+cidr | The IP CIDR to be used to create the first subnet
+region | GCP region to deploy the transit VPC, subnet and gateway in
 account | The GCP account name on the Aviatrix controller, under which the controller will deploy this VPC
 
 The following variables are optional:
@@ -47,10 +77,11 @@ key | default | value
 --- | --- | ---
 name | avx-\<primary/ha-region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-\<name\>-transit.
 instance_size | n1-standard-1 | Size of the transit gateway instances
-ha_gw | true | Set to false te deploy a single transit GW
+ha_gw | true | Boolean to build HA. Cannot be set to false when ha_region is set.
+ha_region | "" | GCP region for multi region HA. HA is multi-az single region by default, but will become multi region when this is set.
+ha_cidr | "" | The IP CIDR to be used to create ha_region spoke subnet. Only 
 connected_transit | true | Set to false to disable connected_transit
 active_mesh | true | Set to false to disable active_mesh
-ha_region | "" | GCP region to deploy the ha subnet and ha gateway in. By default it will deploy in the primary region but a different AZ.
 az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
 
