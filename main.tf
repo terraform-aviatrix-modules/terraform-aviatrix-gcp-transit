@@ -37,32 +37,36 @@ resource "aviatrix_vpc" "ha_region" {
 }
 
 resource "aviatrix_transit_gateway" "single" {
-  count              = var.ha_gw ? 0 : 1
-  gw_name            = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
-  vpc_id             = aviatrix_vpc.single_region[0].name
-  cloud_type         = 4
-  vpc_reg            = "${var.region}-${var.az1}"
-  enable_active_mesh = var.active_mesh
-  gw_size            = var.instance_size
-  account_name       = var.account
-  subnet             = var.cidr
-  connected_transit  = var.connected_transit
+  count                            = var.ha_gw ? 0 : 1
+  gw_name                          = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
+  vpc_id                           = aviatrix_vpc.single_region[0].name
+  cloud_type                       = 4
+  vpc_reg                          = "${var.region}-${var.az1}"
+  enable_active_mesh               = var.active_mesh
+  gw_size                          = var.instance_size
+  account_name                     = var.account
+  subnet                           = var.cidr
+  connected_transit                = var.connected_transit
+  bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval    = var.learned_cidr_approval
 }
 
 resource "aviatrix_transit_gateway" "ha" {
-  count              = var.ha_gw ? 1 : 0
-  gw_name            = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
-  vpc_id             = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].name : aviatrix_vpc.single_region[0].name
-  cloud_type         = 4
-  vpc_reg            = "${var.region}-${var.az1}"
-  enable_active_mesh = var.active_mesh
-  gw_size            = var.instance_size
-  account_name       = var.account
-  subnet             = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].subnets[0].cidr : aviatrix_vpc.single_region[0].subnets[0].cidr
-  ha_subnet          = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].subnets[1].cidr : aviatrix_vpc.single_region[0].subnets[0].cidr
-  ha_gw_size         = var.instance_size
-  ha_zone            = length(var.ha_region) > 0 ? "${var.ha_region}-${var.az2}" : "${var.region}-${var.az2}"
-  connected_transit  = var.connected_transit
+  count                            = var.ha_gw ? 1 : 0
+  gw_name                          = length(var.name) > 0 ? "avx-${var.name}-transit" : "avx-${var.region}-transit"
+  vpc_id                           = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].name : aviatrix_vpc.single_region[0].name
+  cloud_type                       = 4
+  vpc_reg                          = "${var.region}-${var.az1}"
+  enable_active_mesh               = var.active_mesh
+  gw_size                          = var.instance_size
+  account_name                     = var.account
+  subnet                           = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].subnets[0].cidr : aviatrix_vpc.single_region[0].subnets[0].cidr
+  ha_subnet                        = length(var.ha_region) > 0 ? aviatrix_vpc.ha_region[0].subnets[1].cidr : aviatrix_vpc.single_region[0].subnets[0].cidr
+  ha_gw_size                       = var.instance_size
+  ha_zone                          = length(var.ha_region) > 0 ? "${var.ha_region}-${var.az2}" : "${var.region}-${var.az2}"
+  connected_transit                = var.connected_transit
+  bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval    = var.learned_cidr_approval
 }
 
 

@@ -61,6 +61,18 @@ variable "connected_transit" {
   default     = true
 }
 
+variable "bgp_manual_spoke_advertise_cidrs" {
+  description = "Define a list of CIDRs that should be advertised via BGP."
+  type        = string
+  default     = ""
+}
+
+variable "learned_cidr_approval" {
+  description = "Set to true to enable learned CIDR approval."
+  type        = string
+  default     = "false"
+}
+
 variable "active_mesh" {
   description = "Set to false to disable active mesh."
   type        = bool
