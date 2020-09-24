@@ -81,6 +81,8 @@ ha_gw | true | Boolean to build HA. Cannot be set to false when ha_region is set
 ha_region | "" | GCP region for multi region HA. HA is multi-az single region by default, but will become multi region when this is set.
 ha_cidr | "" | The IP CIDR to be used to create ha_region spoke subnet. Only 
 connected_transit | true | Set to false to disable connected_transit
+bgp_manual_spoke_advertise_cidrs | | Intended CIDR list to advertise via BGP. Example: "10.2.0.0/16,10.4.0.0/16" 
+learned_cidr_approval | false | Switch to true to enable learned CIDR approval
 active_mesh | true | Set to false to disable active_mesh
 az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.

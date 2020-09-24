@@ -47,6 +47,8 @@ resource "aviatrix_transit_gateway" "single" {
   account_name       = var.account
   subnet             = var.cidr
   connected_transit  = var.connected_transit
+  bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval    = var.learned_cidr_approval
 }
 
 resource "aviatrix_transit_gateway" "ha" {
@@ -63,6 +65,8 @@ resource "aviatrix_transit_gateway" "ha" {
   ha_gw_size         = var.instance_size
   ha_zone            = length(var.ha_region) > 0 ? "${var.ha_region}-${var.az2}" : "${var.region}-${var.az2}"
   connected_transit  = var.connected_transit
+  bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
+  enable_learned_cidrs_approval    = var.learned_cidr_approval
 }
 
 
