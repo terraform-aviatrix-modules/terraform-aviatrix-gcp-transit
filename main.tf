@@ -26,7 +26,7 @@ resource "aviatrix_vpc" "default" {
 
 resource "aviatrix_transit_gateway" "default" {
   gw_name                          = local.name
-  vpc_id                           = aviatrix_vpc.default
+  vpc_id                           = aviatrix_vpc.default.name
   cloud_type                       = 4
   vpc_reg                          = local.region1
   enable_active_mesh               = var.active_mesh
