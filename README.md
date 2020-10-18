@@ -89,7 +89,6 @@ az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -transit
-insane_mode | false | Set to true to enable insane mode encryption
 
 ### Outputs
 
