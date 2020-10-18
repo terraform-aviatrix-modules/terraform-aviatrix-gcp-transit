@@ -24,7 +24,7 @@ v1.0.0 | 0.12 | |
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.1.0"
+  version            = "1.2.0"
   
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -38,7 +38,7 @@ module "gcp_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.1.0"
+  version            = "1.2.0"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -52,7 +52,7 @@ module "gcp_ha_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.1.0"
+  version            = "1.2.0"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -89,6 +89,7 @@ az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -transit
+insane_mode | false | Set to true to enable Aviatrix insane mode high-performance encryption
 
 ### Outputs
 

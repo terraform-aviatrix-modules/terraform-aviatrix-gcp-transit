@@ -91,6 +91,12 @@ variable "active_mesh" {
   default     = true
 }
 
+variable "insane_mode" {
+  description = "Boolean to enable insane mode"
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix     = var.prefix ? "avx-" : ""
