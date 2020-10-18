@@ -7,6 +7,7 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v1.1.1 | 0.12 | | 
 v1.1.0 | 0.12 | | 
 v1.0.2 | 0.12 | | 
 v1.0.1 | 0.12 | |
@@ -86,6 +87,9 @@ learned_cidr_approval | false | Switch to true to enable learned CIDR approval
 active_mesh | true | Set to false to disable active_mesh
 az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
+prefix | true | Boolean to enable prefix name with avx-
+suffix | true | Boolean to enable suffix name with -transit
+insane_mode | false | Set to true to enable insane mode encryption
 
 ### Outputs
 

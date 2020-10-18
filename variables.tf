@@ -55,6 +55,18 @@ variable "name" {
   default     = ""
 }
 
+variable "prefix" {
+  description = "Boolean to determine if name will be prepended with avx-"
+  type        = bool
+  default     = true
+}
+
+variable "suffix" {
+  description = "Boolean to determine if name will be appended with -spoke"
+  type        = bool
+  default     = true
+}
+
 variable "connected_transit" {
   description = "Set to false to disable connected transit."
   type        = bool
@@ -77,4 +89,15 @@ variable "active_mesh" {
   description = "Set to false to disable active mesh."
   type        = bool
   default     = true
+}
+
+locals {
+  lower_name = replace(lower(var.name), " ", "-")
+  prefix     = var.prefix ? "avx-" : ""
+  suffix     = var.suffix ? "-transit" : ""
+  name       = "${local.prefix}${local.lower_name}${local.suffix}"
+  subnet     = length(var.ha_region) > 0 ? aviatrix_vpc.default.subnets[0].cidr : aviatrix_vpc.default.subnets[0].cidr
+  ha_subnet  = length(var.ha_region) > 0 ? aviatrix_vpc.default.subnets[1].cidr : aviatrix_vpc.default.subnets[0].cidr
+  region1    = "${var.region}${var.az1}"
+  region2    = length(var.ha_region) > 0 ? "${var.ha_region}-${var.az2}" : "${var.region}-${var.az2}"
 }
