@@ -97,6 +97,12 @@ variable "insane_mode" {
   default     = false
 }
 
+variable "enable_segmentation" {
+  description = "Switch to true to enable transit segmentation"
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix     = var.prefix ? "avx-" : ""

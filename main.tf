@@ -40,4 +40,5 @@ resource "aviatrix_transit_gateway" "default" {
   connected_transit                = var.connected_transit
   bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
   enable_learned_cidrs_approval    = var.learned_cidr_approval
+  enable_segmentation              = var.enable_segmentation
 }
