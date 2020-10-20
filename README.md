@@ -7,6 +7,7 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 v1.1.1 | 0.12 | | 
 v1.1.0 | 0.12 | | 
 v1.0.2 | 0.12 | | 
@@ -24,7 +25,7 @@ v1.0.0 | 0.12 | |
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.2.0"
+  version            = "2.0.0"
   
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -38,7 +39,7 @@ module "gcp_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.2.0"
+  version            = "2.0.0"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -52,7 +53,7 @@ module "gcp_ha_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "1.2.0"
+  version            = "2.0.0"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -90,6 +91,7 @@ az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_
 prefix | true | Boolean to enable prefix name with avx-
 suffix | true | Boolean to enable suffix name with -transit
 insane_mode | false | Set to true to enable Aviatrix insane mode high-performance encryption
+enable_segmentation | false | Switch to true to enable transit segmentation
 
 ### Outputs
 
