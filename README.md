@@ -86,6 +86,21 @@ learned_cidr_approval | false | Switch to true to enable learned CIDR approval
 active_mesh | true | Set to false to disable active_mesh
 az1 | "b" | Concatenates with primary_region to form az names. e.g. us-east1b.
 az2 | "c" | Concatenates with primary_region or ha_region (depending whether ha_region is set) to form az names. e.g. us-east1c.
+single_ip_snat | false | Enable single_ip mode Source NAT for this container
+enable_segmentation  | false | Enable transit gateway for segmentation
+enable_advertise_transit_cidr  | false | Switch to enable/disable advertise transit VPC network CIDR for a VGW connection
+bgp_polling_time  | 50 | BGP route polling time. Unit is in seconds
+bgp_ecmp  | false | Enable Equal Cost Multi Path (ECMP) routing for the next hop
+
+Not currently supported using this module:
+
+key | description
+:---|:---
+enable_firenet  | false | Sign of readiness for FireNet connection
+enable_transit_firenet  | false | Sign of readiness for Transit FireNet connection
+enable_egress_transit_firenet  | false | Enable Egress Transit FireNet
+local_as_number | Changes the Aviatrix Transit Gateway ASN number before you setup Aviatrix Transit Gateway connection configurations
+prepend_as_path | List of AS numbers to populate BGP AP_PATH field when it advertises to VGW or peer devices
 
 ### Outputs
 

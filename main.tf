@@ -49,6 +49,14 @@ resource "aviatrix_transit_gateway" "single" {
   connected_transit                = var.connected_transit
   bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
   enable_learned_cidrs_approval    = var.learned_cidr_approval
+  single_ip_snat                   = var.single_ip_snat
+  enable_segmentation              = var.enable_segmentation
+  enable_advertise_transit_cidr    = var.enable_advertise_transit_cidr
+  #enable_firenet                   = var.enable_firenet
+  #enable_transit_firenet           = var.enable_transit_firenet
+  #enable_egress_transit_firenet    = var.enable_egress_transit_firenet
+  bgp_polling_time                 = var.bgp_polling_time
+  bgp_ecmp                         = var.bgp_ecmp
 }
 
 resource "aviatrix_transit_gateway" "ha" {
@@ -67,6 +75,14 @@ resource "aviatrix_transit_gateway" "ha" {
   connected_transit                = var.connected_transit
   bgp_manual_spoke_advertise_cidrs = var.bgp_manual_spoke_advertise_cidrs
   enable_learned_cidrs_approval    = var.learned_cidr_approval
+  single_ip_snat                   = var.single_ip_snat
+  enable_segmentation              = var.enable_segmentation
+  enable_advertise_transit_cidr    = var.enable_advertise_transit_cidr
+  #enable_firenet                   = var.enable_firenet
+  #enable_transit_firenet           = var.enable_transit_firenet
+  #enable_egress_transit_firenet    = var.enable_egress_transit_firenet
+  bgp_polling_time                 = var.bgp_polling_time
+  bgp_ecmp                         = var.bgp_ecmp
 }
 
 
