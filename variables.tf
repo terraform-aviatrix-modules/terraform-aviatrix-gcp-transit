@@ -132,6 +132,7 @@ variable "enable_egress_transit_firenet" {
   type        = bool
   default     = false
 }
+
 variable "bgp_polling_time" {
   description = "BGP route polling time. Unit is in seconds"
   type        = string
