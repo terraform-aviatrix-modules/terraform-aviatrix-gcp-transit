@@ -7,6 +7,7 @@ This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the 
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v2.0.1 | 0.12 | >=6.2 | >=0.2.17
 v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 v1.1.1 | 0.12 | | 
 v1.1.0 | 0.12 | | 
@@ -25,7 +26,7 @@ v1.0.0 | 0.12 | |
 # GCP Transit Module
 module "gcp_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "2.0.0"
+  version            = "2.0.1"
   
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -39,7 +40,7 @@ module "gcp_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "2.0.0"
+  version            = "2.0.1"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -53,7 +54,7 @@ module "gcp_ha_transit_1" {
 # GCP Transit Module
 module "gcp_ha_transit_1" {
   source             = "terraform-aviatrix-modules/gcp-transit/aviatrix"
-  version            = "2.0.0"
+  version            = "2.0.1"
 
   account            = "GCP"
   cidr               = "10.10.0.0/16"
@@ -95,9 +96,6 @@ enable_segmentation | false | Switch to true to enable transit segmentation
 single_az_ha | true | Set to false if Controller managed Gateway HA is desired
 single_ip_snat | false | Enable single_ip mode Source NAT for this container
 enable_advertise_transit_cidr  | false | Switch to enable/disable advertise transit VPC network CIDR for a VGW connection
-enable_firenet  | false | Sign of readiness for FireNet connection
-enable_transit_firenet  | false | Sign of readiness for Transit FireNet connection
-enable_egress_transit_firenet  | false | Enable Egress Transit FireNet
 bgp_polling_time  | 50 | BGP route polling time. Unit is in seconds
 bgp_ecmp  | false | Enable Equal Cost Multi Path (ECMP) routing for the next hop
 
