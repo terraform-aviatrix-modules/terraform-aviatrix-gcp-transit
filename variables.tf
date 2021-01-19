@@ -121,24 +121,6 @@ variable "enable_advertise_transit_cidr" {
   default     = false
 }
 
-variable "enable_firenet" {
-  description = "Sign of readiness for FireNet connection"
-  type        = bool
-  default     = false
-}
-
-variable "enable_transit_firenet" {
-  description = "Sign of readiness for Transit FireNet connection"
-  type        = bool
-  default     = false
-}
-
-variable "enable_egress_transit_firenet" {
-  description = "Enable Egress Transit FireNet"
-  type        = bool
-  default     = false
-}
-
 variable "bgp_polling_time" {
   description = "BGP route polling time. Unit is in seconds"
   type        = string
