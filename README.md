@@ -105,5 +105,5 @@ This module will return the following objects:
 
 key | description
 --- | ---
-vpc | The created vpc as an object with all of it's attributes. This was created using the aviatrix_vpc resource.
-transit_gateway | The created Aviatrix transit gateway as an object with all of it's attributes.
+[vpc](https://registry.terraform.io/providers/AviatrixSystems/aviatrix/latest/docs/resources/aviatrix_vpc) | The created VPC as an object with all of it's attributes. This was created using the aviatrix_vpc resource.
+[transit_gateway](https://registry.terraform.io/providers/AviatrixSystems/aviatrix/latest/docs/resources/aviatrix_transit_gateway) | The created Aviatrix transit gateway as an object with all of it's attributes.
