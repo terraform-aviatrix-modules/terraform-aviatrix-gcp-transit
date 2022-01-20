@@ -1,5 +1,10 @@
 # Terraform Aviatrix GCP Transit
 
+# This module will be deprecated in favor of the new multi-cloud transit module
+The Multi-Cloud can be found here: https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-transit/aviatrix/latest
+This legacy module will remain available in the Terraform registry and on Github for the forseable future, but please plan to replace any usage of it with the multi-cloud transit module.
+This module will no longer be maintained and updated.
+
 ### Description
 
 This module deploys a VPC and an Aviatrix transit gateway with HA. Defining the Aviatrix Terraform provider is assumed upstream and is not part of this module.
